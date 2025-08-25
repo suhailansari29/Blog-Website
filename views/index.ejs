@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Blog Home</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <%- include("partials/header.ejs") %>
+
+    <%if(locals.numberOfCards && locals.heading && locals.para){%>
+        <div align="center" style="width: 98vw;" class="mb-4 mx-0 ps-3">
+        <div class="row row-cols-1 row-cols-md-4 g-3">
+
+            <% for(let i = 0;i<numberOfCards;i++){ %>
+                <%- include("partials/card.ejs", {number : i}) %>
+            <% } %>
+
+        </div>
+        </div>
+        
+    <%} else {%>
+        <%- include("partials/empty.ejs") %>
+    <% } %>
+
+    <%- include("partials/footer.ejs") %>
+
+
+    <%- include("partials/script.ejs") %>
+</body>
+</html>

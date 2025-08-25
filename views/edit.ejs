@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>Edit Blog</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <%- include("partials/header.ejs") %>
+
+    <%if(locals.number && locals.head && locals.content){%>
+
+    <div class="container">
+    <div class="mb-3">
+        <form action="/editted/<%= number %>" method="post">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" id="title" value="<%= head[number] %>">
+        </div>
+        <div class="mb-3">
+        <label for="content" class="form-label">Edit Text</label>
+        <textarea class="form-control" id="content" rows="3" name="content"><%= content[number] %></textarea>
+        <button type="submit" class="btn btn-primary" style="margin:20px 0px">Edit</button>
+        </form>
+    </div>
+    </div>
+
+    <% } %>
+
+    <%- include("partials/footer.ejs") %>
+
+
+    <%- include("partials/script.ejs") %>
+</body>
+</html>
